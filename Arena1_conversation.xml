@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<conversationList xmlns:ns2="Conversation" xmlns:ns3="ConversationList">
+    <allConversations>
+        <conversation conversationName="ArenaBattle1">
+            <dialogueList>
+                <dialogue>
+                    <id>start</id>
+                    <prerequisites></prerequisites>
+                    <text>You're talking to me? Does that mean you're ready for a match?</text>
+                    <pointer>b1</pointer>
+                    <pointer>b2</pointer>
+                    <pointer>b3</pointer>
+                    <pointer>b4</pointer>
+                    <pointer>b5</pointer>
+                    <actions></actions>
+                </dialogue>
+                <dialogue>
+                    <id>b1</id>
+                    <prerequisites></prerequisites>
+                    <text>What am I up against?</text>
+                    <pointer>c1</pointer>
+                    <actions></actions>
+                </dialogue>
+                <dialogue>
+                    <id>c1</id>
+                    <prerequisites></prerequisites>
+                    <text>No one likes it when a newcomer gets into the arena and dies right off, so you're only up against a bear to start with.</text>
+                    <pointer>d1</pointer>
+                    <pointer>d2</pointer>
+                    <actions></actions>
+                </dialogue>
+                <dialogue>
+                    <id>d1</id>
+                    <prerequisites></prerequisites>
+                    <text>I have to kill a bear?</text>
+                    <pointer>e1</pointer>
+                    <actions></actions>
+                </dialogue>
+                <dialogue>
+                    <id>d2</id>
+                    <prerequisites></prerequisites>
+                    <text>Oh, is that all?</text>
+                    <pointer>e1</pointer>
+                    <actions></actions>
+                </dialogue>
+                <dialogue>
+                    <id>e1</id>
+                    <prerequisites></prerequisites>
+                    <text>Yeah, it should be pretty simple. Just don't get mauled and you should be fine.</text>
+                    <pointer>b1</pointer>
+                    <pointer>b2</pointer>
+                    <pointer>b3</pointer>
+                    <pointer>b4</pointer>
+                    <pointer>b5</pointer>
+                    <actions></actions>
+                </dialogue>
+                <dialogue>
+                    <id>b2</id>
+                    <prerequisites></prerequisites>
+                    <text>Must I go alone?</text>
+                    <pointer>f1</pointer>
+                    <actions></actions>
+                </dialogue>
+                <dialogue>
+                    <id>f1</id>
+                    <prerequisites></prerequisites>
+                    <text>Later on you might go in with someone else, but for now, you'll be fine on your own.</text>
+                    <pointer>b1</pointer>
+                    <pointer>b2</pointer>
+                    <pointer>b3</pointer>
+                    <pointer>b4</pointer>
+                    <pointer>b5</pointer>
+                    <actions></actions>
+                </dialogue>
+                <dialogue>
+                    <id>b3</id>
+                    <prerequisites></prerequisites>
+                    <text>What do I get if I win?</text>
+                    <pointer>g1</pointer>
+                    <actions></actions>
+                </dialogue>
+                <dialogue>
+                    <id>g1</id>
+                    <prerequisites></prerequisites>
+                    <text>To live.</text>
+                    <pointer>h1</pointer>
+                    <actions></actions>
+                </dialogue>
+                <dialogue>
+                    <id>h1</id>
+                    <prerequisites></prerequisites>
+                    <text>Anything else?</text>
+                    <pointer>i1</pointer>
+                    <actions></actions>
+                </dialogue>
+                <dialogue>
+                    <id>i1</id>
+                    <prerequisites></prerequisites>
+                    <text>If you win a lot, the crowd may start to like you.</text>
+                    <pointer>b1</pointer>
+                    <pointer>b2</pointer>
+                    <pointer>b3</pointer>
+                    <pointer>b4</pointer>
+                    <pointer>b5</pointer>
+                    <actions></actions>
+                </dialogue>
+                <dialogue>
+                    <id>b4</id>
+                    <prerequisites></prerequisites>
+                    <text>Just set me up with a match.</text>
+                    <pointer>j1</pointer>
+                    <actions></actions>
+                </dialogue>
+                <dialogue>
+                    <id>j1</id>
+                    <prerequisites></prerequisites>
+                    <text>You're the boss...No wait, I am. Hah. </text>
+                    <pointer>end</pointer>
+                    <actions>fight=arena1</actions>
+                </dialogue>
+                <dialogue>
+                    <id>b5</id>
+                    <prerequisites></prerequisites>
+                    <text>Give me some more time.</text>
+                    <pointer>b6</pointer>
+                    <actions></actions>
+                </dialogue>
+                <dialogue>
+                    <id>b6</id>
+                    <prerequisites></prerequisites>
+                    <text>Hurry it up.</text>
+                    <pointer>end</pointer>
+                    <actions></actions>
+                </dialogue>
+            </dialogueList>
+        </conversation>
+    </allConversations>
+</conversationList>
