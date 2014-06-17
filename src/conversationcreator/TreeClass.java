@@ -75,6 +75,13 @@ public class TreeClass extends JPanel {
         // Graphics b = bim.getGraphics();
         // b.drawLine(0, 0, 1000, 1000);
     }
+    
+    private void Init()
+    {
+        
+        //RefreshTree();
+        
+    }
 
     public TreeClass(Conversation currentConversation, ConversationCreatorWindow w) {
         window = w;
@@ -96,20 +103,27 @@ public class TreeClass extends JPanel {
 
         treeView.getContentPane().repaint();
         treeView.validate();
-        RefreshTree();
-        DrawLines();
+        RefreshTree(currentConversation);
+        //Init();
        // treeView.repaint();
         //this.repaint();
 
     }
 
-    public void RefreshTree() {
+    public void RefreshTree(Conversation currentConversation) {
+        this.currentConversation = currentConversation;
         //this method will populate our tree structure to our new JFrame
         //we will start in the middle then go out from there
         //we will always have a starter so lets add that manually
+        //Init();
+        treeView.getContentPane().removeAll();
+        
+        treeView.add(testPanel);
+        //treeView.getContentPane().repaint();
+        treeView.revalidate();
         alreadyDrawn = new ArrayList();
         panelList = new ArrayList();
-        
+        lineArray = new ArrayList();
 
         Dialogue d = currentConversation.GetDialogue("start");
         if (d == null) {
@@ -139,7 +153,7 @@ public class TreeClass extends JPanel {
         //we will need a list of already drawn nodes which we check against to make sure it's not a duplicate
         //i think we'll need a recurring method that calls itself until it reaches the end or it's linked back to nodes
         DrawNodes(130, treeView.getSize().height, currentConversation.GetAllLinkingDialogues(d.getId()), new Dimension(0, (int) (treeView.getSize().height / 2)));
-
+        DrawLines();
         //infoPanel.add(start);
         //infoPanel.revalidate();
         //infoPanel.repaint();

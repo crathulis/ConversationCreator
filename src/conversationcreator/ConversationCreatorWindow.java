@@ -48,23 +48,24 @@ public class ConversationCreatorWindow extends javax.swing.JFrame {
     ArrayList<Dialogue> alreadyDrawn;
     ArrayList<NewPanel> panelList;
     TreeClass newtree;
+    int parents;
 
     public ConversationCreatorWindow() {
         initComponents();
-/*
-        treeView = new JFrame();
-        treeView.setSize(1024, 768);
-        treeView.setVisible(true);
-        treeView.setLayout(null);
-        infoPanel = new JPanel();
-        infoPanel.setSize(1024, 1500);
-        infoPanel.setLocation(0, 0);
-        infoPanel.setLayout(null);
-        //treeView.add(infoPanel);
-        Graphics g;
-        panelList = new ArrayList();
-        //figure out how many jpanels we need.
         /*
+         treeView = new JFrame();
+         treeView.setSize(1024, 768);
+         treeView.setVisible(true);
+         treeView.setLayout(null);
+         infoPanel = new JPanel();
+         infoPanel.setSize(1024, 1500);
+         infoPanel.setLocation(0, 0);
+         infoPanel.setLayout(null);
+         //treeView.add(infoPanel);
+         Graphics g;
+         panelList = new ArrayList();
+         //figure out how many jpanels we need.
+         /*
          JButton button = new JButton();
          button.setText("start");
          button.setSize(80,25);
@@ -216,8 +217,8 @@ public class ConversationCreatorWindow extends javax.swing.JFrame {
         for (Conversation con : allConversations) {
             if (con.getConversationName().equals(conversationName)) {
                 currentConversation = con;
-                
-        newtree = new TreeClass(con,this);
+
+                newtree = new TreeClass(con, this);
                 break;
             }
         }
@@ -231,8 +232,6 @@ public class ConversationCreatorWindow extends javax.swing.JFrame {
         //RefreshTree();
 
     }
-
-    
 
     private ArrayList<Conversation> GetAllConversations() {
         ArrayList<Conversation> conversationList = null;
@@ -315,6 +314,7 @@ public class ConversationCreatorWindow extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(800, 600));
@@ -428,6 +428,14 @@ public class ConversationCreatorWindow extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jButton2.setText("Validate");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -437,16 +445,17 @@ public class ConversationCreatorWindow extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(btnAddConversation, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(btnDeleteConversation, javax.swing.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(btnDeleteDialogue)
-                                .addGap(159, 159, 159)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 171, Short.MAX_VALUE))
+                                .addGap(96, 96, 96)
+                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(32, 32, 32)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -494,15 +503,15 @@ public class ConversationCreatorWindow extends javax.swing.JFrame {
                                                 .addGap(17, 17, 17)))
                                         .addComponent(txtPrerequisites, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 457, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(0, Short.MAX_VALUE))
+                .addContainerGap(88, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(btnAddConversation)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnAddConversation)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnDeleteConversation)
                             .addComponent(btnDeleteDialogue, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -515,8 +524,10 @@ public class ConversationCreatorWindow extends javax.swing.JFrame {
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 472, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 472, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addComponent(jButton1)
+                        .addGap(3, 3, 3)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(67, 67, 67)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
@@ -567,12 +578,13 @@ public class ConversationCreatorWindow extends javax.swing.JFrame {
 
         currentDialogue.setActions(txtActions.getText().split(","));
         currentDialogue.setId(txtID.getText());
-        currentDialogue.setPointer(txtPointers.getText().split(","));
+        currentDialogue.setPointer(txtPointers.getText().replace(" ", "").split(","));
         currentDialogue.setPrerequisites(txtPrerequisites.getText().split(","));
         currentDialogue.setText(txtText.getText());
 
+        System.out.println("Updating node: " + txtID.getText() + " Pointers are: " + txtPointers.getText());
         //JOptionPane.showMessageDialog(null, "Dialogue successfully updated! Remember to Re-Write the xml file before you close the program!");
-        this.newtree.RefreshTree();
+        this.newtree.RefreshTree(currentConversation);
     }//GEN-LAST:event_btnUpdateDialogueActionPerformed
 
     private void btnAddDialogueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddDialogueActionPerformed
@@ -597,7 +609,7 @@ public class ConversationCreatorWindow extends javax.swing.JFrame {
 
         d.setActions(txtActions.getText().split(","));
         d.setId(txtID.getText());
-        d.setPointer(txtPointers.getText().split(","));
+        d.setPointer(txtPointers.getText().replace(" ", "").split(","));
         d.setPrerequisites(txtPrerequisites.getText().split(","));
         d.setText(txtText.getText());
 
@@ -605,7 +617,7 @@ public class ConversationCreatorWindow extends javax.swing.JFrame {
         RefreshDialogueList();
 
         //JOptionPane.showMessageDialog(null, "Dialogue successfully added! Remember to Re-Write the xml file before you close the program!");
-        this.newtree.RefreshTree();
+        this.newtree.RefreshTree(currentConversation);
     }//GEN-LAST:event_btnAddDialogueActionPerformed
 
     private void btnAddConversationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddConversationActionPerformed
@@ -670,6 +682,11 @@ public class ConversationCreatorWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDeleteDialogueActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        if (Validate()) {
+            // JOptionPane.showMessageDialog(null, DialogueList.getSelectedValue().toString() + " has been deleted.  Make sure to re-write the xml before quitting.");
+            return;
+        }
+
         if (JOptionPane.showConfirmDialog(null, "Are you SURE you want to write your changes to the XML file?  This can't be undone!", "Are you sure??", JOptionPane.YES_NO_OPTION) == (JOptionPane.YES_OPTION)) {
             try {
                 JAXBContext context = null;
@@ -700,6 +717,161 @@ public class ConversationCreatorWindow extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void FindNumberOfParents(Dialogue d, Conversation con) {
+        if (d.getId().equals("start")) {
+            return;
+        }
+        for (Dialogue dialogue : con.getDialogueList()) {
+            boolean foundParent = false;
+            for (String s : dialogue.getPointer()) {
+                if (s.equals(d.getId())) {
+                    //check to see if this is the correct node
+
+                    //found a parent increment counter
+                    System.out.println("Found a parent. Child: " + d.getId() + " Parent: " + dialogue.getId());
+                    parents++;
+                    FindNumberOfParents(dialogue, con);
+                    foundParent = true;
+                }
+            }
+            if (foundParent == true) {
+                break;
+            }
+        }
+
+    }
+
+    private boolean Validate() {
+        //false = no problems,  true = problems
+
+        //we need to check for the following things.
+        //no loose hanging nodes (although this could be a warning)   done
+        //check for ends happening in the wrong places                done
+        //no having end and another link in the same pointer          done
+        //must have a start                                           done
+        //must have at least 1 end                                    done
+        //not allow pointers to a node that doesn't exist             done
+        //make sure nothing links to start
+        for (Conversation con : allConversations) {
+            // <editor-fold defaultstate="collapsed" desc="checking for loose nodes">
+            for (Dialogue d : con.getDialogueList()) {
+                boolean found = false;
+                for (Dialogue checking : con.getDialogueList()) {
+                    if (!d.getId().equals(checking.getId())) //we want to skip ourselves
+                    {
+                        for (String s : checking.getPointer()) {
+                            if (d.getId().equals(s)) {
+                                found = true;
+                                break;
+                            }
+                        }
+                    }
+                }
+                if (found == false) {
+                    if (!d.getId().equals("start")) {
+                        //we found a node with nothing pointing to it, we need to warn the writer that this node is hanging
+                        JOptionPane.showMessageDialog(null, d.getId() + " in conversation: " + con.getConversationName() + " has nothing pointing to it, this won't break the program but please be aware.");
+                    }
+                }
+            }
+        // </editor-fold>
+
+        // <editor-fold defaultstate="collapsed" desc="checking for wrong endings">
+            //parse through everything until we find an end
+            //we could also check for pointers that more than just end, or we can take care of this in the editor
+            for (Dialogue d : con.getDialogueList()) {
+                for (String s : d.getPointer()) {
+                    if (s.equals("end")) {
+                        //so now we have a pointer that has end in it, we need to find how many steps back it takes to get to start
+                        if (d.getPointer().length > 1) {
+                            JOptionPane.showMessageDialog(null, d.getId() + " in conversation: " + con.getConversationName() + " has more pointers other then end.  This is not allowed, please fix this.");
+                            return true;
+                        }
+                        parents = 0;
+                        FindNumberOfParents(d, con);
+                        System.out.println("test");
+                        if (parents % 2 == 0) {
+                            //even and correct
+                        } else {
+                            //odd and bad
+                            JOptionPane.showMessageDialog(null, d.getId() + " in conversation: " + con.getConversationName() + " has a pointer to end but is in the wrong position.  Ends must occur an even number of columns away from start.");
+                            return true;
+                        }
+                    }
+                }
+            }
+        // </editor-fold>
+
+            // <editor-fold defaultstate="collapsed" desc="checking for start">
+            boolean foundStart = false;
+            for (Dialogue d : con.getDialogueList()) {
+                if (d.getId().equals("start")) {
+                    foundStart = true;
+                }
+            }
+            if (foundStart == false) {
+                JOptionPane.showMessageDialog(null, con.getConversationName() + " has no start dialogue, this is necessary.");
+                return true;
+            }
+
+        // </editor-fold>
+            // <editor-fold defaultstate="collapsed" desc="checking for hanging pointers">
+            for (Dialogue d : con.getDialogueList()) {
+                for (String s : d.getPointer()) {
+                    boolean foundPointer = false;
+                    for (Dialogue dialogue : con.getDialogueList()) {
+                        if (s.equals(dialogue.getId()) || s.equals("end")) {
+                            foundPointer = true;
+                        }
+                    }
+                    if (foundPointer == false) {
+                        JOptionPane.showMessageDialog(null, d.getId() + " in conversation: " + con.getConversationName() + " has a pointer, " + s + " that doesnt exist.  This needs to be fixed.");
+                        return true;
+                    }
+                }
+            }
+
+        // </editor-fold>
+            // <editor-fold defaultstate="collapsed" desc="checking for end">
+            boolean foundEnd = false;
+            for (Dialogue d : con.getDialogueList()) {
+                for (String s : d.getPointer()) {
+                    if (s.equals("end")) {
+                        foundEnd = true;
+                    }
+                }
+            }
+            if (foundEnd == false) {
+                JOptionPane.showMessageDialog(null, con.getConversationName() + " has no end pointer, this is necessary.");
+                return true;
+            }
+        // </editor-fold>
+
+            // <editor-fold defaultstate="collapsed" desc="checking that nothing links to start">
+            for (Dialogue d : con.getDialogueList()) {
+                for (String s : d.getPointer()) {
+                    if (s.equals("start")) {
+                        JOptionPane.showMessageDialog(null, d.getId() + " in conversation: " + con.getConversationName() + " links to start.  This is not allowed");
+                        return true;
+                    }
+                }
+            }
+        // </editor-fold>
+
+        }
+        //if we get here, the conversation validated successfully
+
+        return false;
+    }
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+
+        if (!Validate()) {
+            JOptionPane.showMessageDialog(null, "All conversations are valid and are ready to be written to XML");
+        };
+
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     private void SetXMLFile() {
         /*
@@ -760,6 +932,7 @@ public class ConversationCreatorWindow extends javax.swing.JFrame {
     private javax.swing.JButton btnDeleteDialogue;
     private javax.swing.JButton btnUpdateDialogue;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
