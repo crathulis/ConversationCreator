@@ -874,7 +874,7 @@ public class ConversationCreatorWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void SetXMLFile() {
-        /*
+        
          final JFileChooser fc = new JFileChooser();
          fc.setDialogTitle("Please choose the conversation XML file");
          FileNameExtensionFilter xmlfilter = new FileNameExtensionFilter("xml files (*.xml)", "xml");
@@ -884,8 +884,8 @@ public class ConversationCreatorWindow extends javax.swing.JFrame {
          if (returnVal == JFileChooser.APPROVE_OPTION) {
          xmlFile = fc.getSelectedFile();
          }
-         */
-        xmlFile = new File("C:\\Users\\craig.reese\\Documents\\Git\\SVUGame\\Arena1_conversation.xml");
+         
+        //xmlFile = new File("C:\\Users\\craig.reese\\Documents\\Git\\SVUGame\\Arena1_conversation.xml");
     }
 
     /**
