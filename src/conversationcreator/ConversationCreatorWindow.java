@@ -159,7 +159,7 @@ public class ConversationCreatorWindow extends javax.swing.JFrame {
         this.ConversationList.setListData(list.toArray());
     }
 
-    private void PopulateDialogueQuestionaire(String dialogueID) {
+    public void PopulateDialogueQuestionaire(String dialogueID) {
         currentDialogue = null;
         for (Dialogue d : currentConversation.getDialogueList()) {
             if (d.getId().equals(dialogueID)) {
@@ -217,7 +217,7 @@ public class ConversationCreatorWindow extends javax.swing.JFrame {
             if (con.getConversationName().equals(conversationName)) {
                 currentConversation = con;
                 
-        newtree = new TreeClass(con);
+        newtree = new TreeClass(con,this);
                 break;
             }
         }

@@ -10,6 +10,8 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.geom.Line2D;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
@@ -34,6 +36,7 @@ public class TreeClass extends JPanel {
     Dimension end = new Dimension();
     JPanel testPanel;
     ArrayList<LineHolder> lineArray = new ArrayList();
+    ConversationCreatorWindow window;
 
     /*
      @Override
@@ -73,7 +76,8 @@ public class TreeClass extends JPanel {
         // b.drawLine(0, 0, 1000, 1000);
     }
 
-    public TreeClass(Conversation currentConversation) {
+    public TreeClass(Conversation currentConversation, ConversationCreatorWindow w) {
+        window = w;
         this.currentConversation = currentConversation;
         treeView = new JFrame();
         treeView.setSize(1024, 768);
@@ -204,10 +208,18 @@ public class TreeClass extends JPanel {
 
                 boolean found = false;
 
-                JButton button = new JButton();
+                final JButton button = new JButton();
                 button.setSize(100, 25);
                 button.setText(node.getId());
                 button.setToolTipText(node.getText());
+                button.addActionListener(new ActionListener(){
+
+                    @Override
+                    public void actionPerformed(ActionEvent ae) {
+                        window.PopulateDialogueQuestionaire(button.getText());
+                    }
+                    
+                });
 
                 for (Dialogue drawnNode : alreadyDrawn) {
                     if (drawnNode.getId().equals(node.getId())) {
