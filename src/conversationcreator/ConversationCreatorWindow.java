@@ -682,11 +682,12 @@ public class ConversationCreatorWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDeleteDialogueActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        /*
         if (Validate()) {
             // JOptionPane.showMessageDialog(null, DialogueList.getSelectedValue().toString() + " has been deleted.  Make sure to re-write the xml before quitting.");
             return;
         }
-
+*/
         if (JOptionPane.showConfirmDialog(null, "Are you SURE you want to write your changes to the XML file?  This can't be undone!", "Are you sure??", JOptionPane.YES_NO_OPTION) == (JOptionPane.YES_OPTION)) {
             try {
                 JAXBContext context = null;
